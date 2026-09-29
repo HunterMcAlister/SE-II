@@ -1,4 +1,4 @@
-# Feature: <Church Site>
+# Feature: <Church User Program>
 
 **Feature ID:** 1  
 **Branch pattern:** `feature/1-user-authentication`  
