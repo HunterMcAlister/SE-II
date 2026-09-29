@@ -3,7 +3,7 @@
 **Feature ID:** 6  
 **Branch pattern:** `feature/7-Manage_Customer_Order`
 **Status:** Draft  
-**Created:** 2026-09-20 
+**Created:** 2026-09-27 
 **Input:** Allows authorized users to create, update, view, and manage orders placed by customers for inventory items.
 **Depends on:** Manage Inventory, Manage Customers, and database persistence.
 **Related:** Manage Inventory, Manage Customers, Authentication/Security

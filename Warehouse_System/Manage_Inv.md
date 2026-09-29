@@ -3,7 +3,7 @@
 **Feature ID:** 1  
 **Branch pattern:** `feature/1-Manage_Inv`
 **Status:** Draft  
-**Created:** 2026-09-20 
+**Created:** 2026-09-27 
 **Input:**  Allows people to manage inventory and change anything if needed.
 **Depends on:** none
 **Related:** Authentication/security ADRs may be added later  
