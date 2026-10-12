@@ -1,6 +1,6 @@
 # Feature: <Manage_Employees>
 
-**Feature ID:** 3  
+**Feature ID:** 4  
 **Branch pattern:** `feature/4-Manage_Employees`
 **Status:** Draft  
 **Created:** 2026-09-27 
@@ -12,34 +12,34 @@
 
 ## User Stories
 
-### US-N.1: Manage Employees
+### US-4.1: Manage Employees
 
-**As a** <manager>  
-**I want to** <add, update, and remove employee information>  
-**So that** <employee information stays accurate and up to date>
-
-**Priority:** P1  
-**Independent test:** <Create an employee, update the employee's information, and remove the employee while verifying that the database reflects each change.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
-
-### US-N.2: Manage Employee Access
-
-**As a** <manager>  
-**I want to** <assign and update employee access levels>  
-**So that** <employees only have access to the features they need>
+**As a** manager  
+**I want to** add, update, and remove employee information
+**So that** employee information stays accurate and up to date
 
 **Priority:** P1  
-**Independent test:** <Assign an access level to an employee and verify that the employee has the correct system permissions.>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
+**Independent test:** Create an employee, update the employee's information, and remove the employee while verifying that the database reflects each change 
+**Acceptance scenarios:** see ### US-4.1 under Acceptance Criteria.
+
+### US-4.2: Manage Employee Access
+
+**As a** manager
+**I want to** assign and update employee access levels  
+**So that** employees only have access to the features they need
+
+**Priority:** P1  
+**Independent test:** Assign an access level to an employee and verify that the employee has the correct system permissions.
+**Acceptance scenarios:** see ### US-4.2 under Acceptance Criteria
 
 ### US-N.3: Update Employee Information
 
-**As a** <manager>  
-**I want to** <update employee contact and job information>  
-**So that** <the system contains current employee information>
+**As a** manager 
+**I want to** update employee contact and job information
+**So that** the system contains current employee information
 
 **Priority:** P1  
-**Independent test:** <Update an employee's information and verify that the new information is stored correctly in the database.>  
+**Independent test:** Update an employee's information and verify that the new information is stored correctly in the database. 
 **Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
 
 ---
@@ -135,50 +135,50 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Employees
+### US-4.1 — Manage Employees
 
 #### Scenario: Employee is created successfully
 
-* **Given** <the manager is authorized to manage employees>
-* **When** <the manager enters valid employee information and creates the employee>
-* **Then** <the system creates the employee record in the database>
-* **And** <the employee's information is saved correctly>
+* **Given** the manager is authorized to manage employees
+* **When** the manager enters valid employee information and creates the employee
+* **Then** the system creates the employee record in the database
+* **And** the employee's information is saved correctly
 
 #### Scenario: Employee information is invalid
 
-* **Given** <the manager is creating an employee>
-* **When** <the manager leaves a required employee field blank>
-* **Then** <the system rejects the employee record>
-* **And** <the employee is not saved in the database>
+* **Given** the manager is creating an employee
+* **When** the manager leaves a required employee field blank
+* **Then** the system rejects the employee record
+* **And** the employee is not saved in the database
 
-### US-N.2 — Manage Employee Access
+### US-4.2 — Manage Employee Access
 
 #### Scenario: Employee access level is assigned successfully
 
-* **Given** <an employee exists in the system>
-* **When** <the manager assigns a valid access level to the employee>
-* **Then** <the system saves the employee's access level>
-* **And** <the employee receives the permissions associated with that access level>
+* **Given** an employee exists in the system
+* **When** the manager assigns a valid access level to the employee
+* **Then** the system saves the employee's access level
+* **And** the employee receives the permissions associated with that access level
 
 #### Scenario: Unauthorized user attempts to change access
 
-* **Given** <an employee exists in the system>
-* **When** <a user without manager permissions attempts to change the employee's access level>
-* **Then** <the system rejects the change>
-* **And** <the employee's access level remains unchanged>
+* **Given** an employee exists in the system
+* **When** a user without manager permissions attempts to change the employee's access level
+* **Then** the system rejects the change
+* **And** the employee's access level remains unchanged
 
-### US-N.3 — Update Employee Information
+### US-4.3 — Update Employee Information
 
 #### Scenario: Employee information is updated successfully
 
-* **Given** <an employee already exists>
-* **When** <the manager updates valid employee information>
-* **Then** <the system updates the employee record>
-* **And** <the new employee information is saved in the database>
+* **Given** an employee already exists
+* **When** the manager updates valid employee information
+* **Then** the system updates the employee record
+* **And** the new employee information is saved in the database
 
 #### Scenario: Employee does not exist
 
-* **Given** <the employee does not exist in the database>
-* **When** <the manager attempts to update the employee>
-* **Then** <the system rejects the update>
-* **And** <no employee information is changed>
+* **Given** the employee does not exist in the database
+* **When** the manager attempts to update the employee
+* **Then** the system rejects the update
+* **And** no employee information is changed

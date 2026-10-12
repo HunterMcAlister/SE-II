@@ -12,32 +12,32 @@
 
 ## User Stories
 
-### US-N.1: Manage Inventory
-**As a** <Automated Process>  
-**I want to** <Order Items when supply is low>  
-**So that** <Inventory is maintained>
+### US-1.1: Manage Inventory
+**As a** Automated Process
+**I want to** Order Items when supply is low 
+**So that** Inventory is maintained
 
 **Priority:** P1  
-**Independent test:** <Set an item's inventory below its reorder threshold and verify that an order is automatically created for the required item.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
+**Independent test:** Set an item's inventory below its reorder threshold and verify that an order is automatically created for the required item.  
+**Acceptance scenarios:** see ### US-1.1 under Acceptance Criteria.
 
-### US-N.2: Logs
-**As a** <Docker>  
-**I want to** <log in-coming items>  
-**So that** <Inventory is maintained>
-
-**Priority:** P1  
-**Independent test:** <Record a valid incoming shipment and verify that the inventory quantity and corresponding log entry are updated>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
-
-### US-N.3: Logs and missing
-**As a** <Docker>  
-**I want to** <log Damaged and Missing Items>  
-**So that** <Inventory is properly updated and suppliers is notified>
+### US-1.2: Logs
+**As a** Docker 
+**I want to** log in-coming items 
+**So that** Inventory is maintained
 
 **Priority:** P1  
-**Independent test:** <Record a shipment containing damaged or missing items and verify that inventory is adjusted and a supplier notification is generated.>  
-**Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
+**Independent test:** Record a valid incoming shipment and verify that the inventory quantity and corresponding log entry are updated  
+**Acceptance scenarios:** see ### US-1.2 under Acceptance Criteria
+
+### US-1.3: Logs damaged and missing
+**As a** Docker 
+**I want to** log Damaged and Missing Items  
+**So that** Inventory is properly updated and suppliers is notified
+
+**Priority:** P1  
+**Independent test:** Record a shipment containing damaged or missing items and verify that inventory is adjusted and a supplier notification is generated. 
+**Acceptance scenarios:** see ### US-1.3 under Acceptance Criteria
 ---
 
 ## Requirements
@@ -87,7 +87,7 @@
 ## Success Criteria
 
 - **SC-001**: Every Gherkin scenario has at least one automated test before merge
-- **SC-002**: <measurable outcome for this feature>
+- **SC-002**: measurable outcome for this feature
 
 ---
 
@@ -128,44 +128,44 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Inventory
+### US-1.1 — Manage Inventory
 
 #### Scenario: Inventory is above the reorder threshold
-*   **Given** <an inventory item has a quantity of its minimum>
-*   **When** <the inventory is check>
-*   **Then** <reorder back to close to the max>
-*   **And** <an inventory log records the reorder event>
+*   **Given** an inventory item has a quantity of its minimum
+*   **When** the inventory is check
+*   **Then** reorder back to close to the max
+*   **And** an inventory log records the reorder event
 
 #### Scenario: Inventory is above the reorder threshold
-*   **Given** <an inventory item has a quantity above its reorder threshold>
-*   **When** <the system checks the item's inventory level>
-*   **Then** <no purchase order is created>
-*   **And** <no reorder event is recorded>
+*   **Given** an inventory item has a quantity above its reorder threshold
+*   **When** the system checks the item's inventory level
+*   **Then** no purchase order is created
+*   **And** no reorder event is recorded
 
-### US-N.2 — Logs
+### US-1.2 — Logs
 
 #### Scenario: Incoming inventory is successfully received
-*   **Given** <a valid incoming shipment contains an inventory item and quantity>
-*   **When** <the shipment is recorded as received>
-*   **Then** <the inventory quantity is increased by the received quantity>
-*   **And** <an inventory log records the item, quantity, event type, and timestamp>
+*   **Given** a valid incoming shipment contains an inventory item and quantity
+*   **When** the shipment is recorded as received
+*   **Then** the inventory quantity is increased by the received quantity
+*   **And** an inventory log records the item, quantity, event type, and timestamp
 
 #### Scenario: Incoming inventory contains invalid information
-*   **Given** <an incoming shipment is missing a required field or contains an invalid quantity>
-*   **When** <the shipment is recorded>
-*   **Then** <the inventory update is rejected>
-*   **And** <no inventory quantity or inventory log is changed>
+*   **Given** an incoming shipment is missing a required field or contains an invalid quantity
+*   **When** the shipment is recorded
+*   **Then** the inventory update is rejected
+*   **And** no inventory quantity or inventory log is changed
 
-### US-N.3 — Damaged inventory is received
+### US-1.3 — Damaged inventory is received
 
-#### Scenario: Descriptive name (happy path)
-*   **Given** <a shipment contains an inventory item that is damaged>
-*   **When** <an item is damaged>
-*   **Then** <the damaged quantity is recorded separately from successfully received inventory>
-*   **And** <a supplier notification is generated for the damaged items>
+#### Scenario: Shipment is damaged
+*   **Given** a shipment contains an inventory item that is damaged
+*   **When** an item is damaged
+*   **Then** the damaged quantity is recorded separately from successfully received inventory
+*   **And** a supplier notification is generated for the damaged items
 
 #### Scenario: Items are missing from a shipment
-*   **Given** <an expected shipment contains fewer items than the expected quantity>
-*   **When** <the shipment is recorded as received>
-*   **Then** <the missing quantity is recorded in the inventory log>
-*   **And** <a supplier notification is generated for the missing items>
+*   **Given** an expected shipment contains fewer items than the expected quantity
+*   **When** the shipment is recorded as received
+*   **Then** the missing quantity is recorded in the inventory log
+*   **And** a supplier notification is generated for the missing items

@@ -1,6 +1,6 @@
 # Feature: <Manage_Supplier>
 
-**Feature ID:** 2  
+**Feature ID:** 3  
 **Branch pattern:** `feature/3-Manage_Supplier`
 **Status:** Draft  
 **Created:** 2026-09-27 
@@ -12,35 +12,35 @@
 
 ## User Stories
 
-### US-N.1: Manage Suppliers
+### US-3.1: Manage Suppliers
 
-**As a** <warehouse employee>  
-**I want to** <add, update, and remove supplier information>  
-**So that** <supplier information stays accurate and up to date>
-
-**Priority:** P1  
-**Independent test:** <Create a supplier, update its information, and remove it while verifying that the database reflects each change.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
-
-### US-N.2: Associate Suppliers With Inventory Items
-
-**As a** <warehouse employee>  
-**I want to** <associate suppliers with inventory items>  
-**So that** <the system knows which supplier provides each inventory item>
+**As a** warehouse employee  
+**I want to** add, update, and remove supplier information  
+**So that** supplier information stays accurate and up to date
 
 **Priority:** P1  
-**Independent test:** <Assign a supplier to an inventory item and verify that the supplier relationship is saved correctly.>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
+**Independent test:** Create a supplier, update its information, and remove it while verifying that the database reflects each change.  
+**Acceptance scenarios:** see ### US-3.1 under Acceptance Criteria.
 
-### US-N.3: Update Supplier Information
+### US-3.2: Associate Suppliers With Inventory Items
 
-**As a** <warehouse employee>  
-**I want to** <update supplier contact and business information>  
-**So that** <the warehouse has current supplier information>
+**As a** warehouse employee
+**I want to** associate suppliers with inventory items  
+**So that** the system knows which supplier provides each inventory item
 
 **Priority:** P1  
-**Independent test:** <Update a supplier's information and verify that the new information is stored in the database.>  
-**Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
+**Independent test:** Assign a supplier to an inventory item and verify that the supplier relationship is saved correctly. 
+**Acceptance scenarios:** see ### US-3.2 under Acceptance Criteria
+
+### US-3.3: Update Supplier Information
+
+**As a** warehouse employee
+**I want to** update supplier contact and business information  
+**So that** the warehouse has current supplier information
+
+**Priority:** P1  
+**Independent test:** Update a supplier's information and verify that the new information is stored in the database.  
+**Acceptance scenarios:** see ### US-3.3 under Acceptance Criteria
 
 ---
 
@@ -116,7 +116,7 @@
 | `id` | INTEGER PK | Auto-increment |
 | `name` | VARCHAR(255) | Required |
 | `quantity` | INTEGER | Required; must be 0 or greater |
-| `supplier_id` | INTEGER FK | References `supplier.id` |
+| `supplier_id` | INTEGER PK | References `supplier.id` |
 
 ### Associations (if known)
 
@@ -128,50 +128,50 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Suppliers
+### US-3.1 — Manage Suppliers
 
 #### Scenario: Supplier is created successfully
 
-* **Given** <the warehouse employee is authorized to manage suppliers>
-* **When** <the employee enters valid supplier information and creates the supplier>
-* **Then** <the system creates the supplier in the database>
-* **And** <the supplier's information is saved correctly>
+* **Given** the warehouse employee is authorized to manage suppliers
+* **When** the employee enters valid supplier information and creates the supplier
+* **Then** the system creates the supplier in the database
+* **And** the supplier's information is saved correctly
 
 #### Scenario: Supplier information is invalid
 
-* **Given** <the warehouse employee is creating a supplier>
-* **When** <the employee leaves the required supplier name blank>
-* **Then** <the system rejects the supplier>
-* **And** <the supplier is not saved in the database>
+* **Given** the warehouse employee is creating a supplier
+* **When** the employee leaves the required supplier name blank
+* **Then** the system rejects the supplier
+* **And** the supplier is not saved in the database
 
-### US-N.2 — Associate Suppliers With Inventory Items
+### US-3.2 — Associate Suppliers With Inventory Items
 
 #### Scenario: Supplier is successfully associated with an inventory item
 
-* **Given** <a supplier and inventory item already exist>
-* **When** <the warehouse employee associates the supplier with the inventory item>
-* **Then** <the system saves the supplier relationship>
-* **And** <the inventory item shows the correct supplier>
+* **Given** a supplier and inventory item already exist
+* **When** the warehouse employee associates the supplier with the inventory item
+* **Then** the system saves the supplier relationship
+* **And** the inventory item shows the correct supplier
 
 #### Scenario: Supplier does not exist
 
-* **Given** <an inventory item exists>
-* **When** <the warehouse employee attempts to associate the item with a supplier that does not exist>
-* **Then** <the system rejects the association>
-* **And** <the inventory item remains unchanged>
+* **Given** an inventory item exists
+* **When** the warehouse employee attempts to associate the item with a supplier that does not exist
+* **Then** the system rejects the association
+* **And** the inventory item remains unchanged
 
-### US-N.3 — Update Supplier Information
+### US-3.3 — Update Supplier Information
 
 #### Scenario: Supplier information is updated successfully
 
-* **Given** <a supplier already exists>
-* **When** <the warehouse employee updates valid supplier information>
-* **Then** <the system updates the supplier record>
-* **And** <the new supplier information is saved in the database>
+* **Given** a supplier already exists
+* **When** the warehouse employee updates valid supplier information
+* **Then** the system updates the supplier record
+* **And** the new supplier information is saved in the database
 
 #### Scenario: Supplier cannot be updated
 
-* **Given** <the supplier does not exist in the database>
-* **When** <the warehouse employee attempts to update the supplier>
-* **Then** <the system rejects the update>
-* **And** <no supplier information is changed>
+* **Given** the supplier does not exist in the database
+* **When** the warehouse employee attempts to update the supplier
+* **Then** the system rejects the update
+* **And** no supplier information is changed

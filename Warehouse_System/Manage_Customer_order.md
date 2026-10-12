@@ -1,6 +1,6 @@
 # Feature: <Manage_Customer_Order>
 
-**Feature ID:** 6  
+**Feature ID:** 7  
 **Branch pattern:** `feature/7-Manage_Customer_Order`
 **Status:** Draft  
 **Created:** 2026-09-27 
@@ -12,35 +12,35 @@
 
 ## User Stories
 
-### US-N.1: Manage Customer Orders
+### US-7.1: Manage Customer Orders
 
-**As a** <customer service employee>  
-**I want to** <create, update, and cancel customer orders>  
-**So that** <the organization can keep track of customer purchases>
-
-**Priority:** P1  
-**Independent test:** <Create a customer order, update the order information, and cancel the order while verifying that the database reflects each change.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
-
-### US-N.2: Track Customer Orders
-
-**As a** <customer service employee>  
-**I want to** <view the status of customer orders>  
-**So that** <I can track orders from the time they are created until they are completed>
+**As a** customer service employee
+**I want to** create, update, and cancel customer orders 
+**So that** the organization can keep track of customer purchases
 
 **Priority:** P1  
-**Independent test:** <Create a customer order and update its status while verifying that the correct status is displayed.>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
+**Independent test:** Create a customer order, update the order information, and cancel the order while verifying that the database reflects each change.  
+**Acceptance scenarios:** see ### US-7.1 under Acceptance Criteria.
 
-### US-N.3: Fulfill Customer Orders
+### US-7.2: Track Customer Orders
 
-**As a** <warehouse employee>  
-**I want to** <record when a customer order is fulfilled>  
-**So that** <the inventory quantity can be updated when items are provided to the customer>
+**As a** customer service employee 
+**I want to** view the status of customer orders  
+**So that** I can track orders from the time they are created until they are completed
 
 **Priority:** P1  
-**Independent test:** <Mark a customer order as fulfilled and verify that the ordered inventory quantity is reduced correctly.>  
-**Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
+**Independent test:** Create a customer order and update its status while verifying that the correct status is displayed.  
+**Acceptance scenarios:** see ### US-7.2 under Acceptance Criteria
+
+### US-7.3: Fulfill Customer Orders
+
+**As a** warehouse employee
+**I want to** record when a customer order is fulfilled
+**So that** the inventory quantity can be updated when items are provided to the customer
+
+**Priority:** P1  
+**Independent test:** Mark a customer order as fulfilled and verify that the ordered inventory quantity is reduced correctly. 
+**Acceptance scenarios:** see ### US-7.3 under Acceptance Criteria
 
 ---
 
@@ -145,50 +145,50 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Customer Orders
+### US-7.1 — Manage Customer Orders
 
 #### Scenario: Customer order is created successfully
 
-* **Given** <the customer service employee is authorized to manage customer orders>
-* **When** <the employee enters a valid customer, inventory item, and order quantity>
-* **Then** <the system creates the customer order in the database>
-* **And** <the customer order is assigned a pending status>
+* **Given** the customer service employee is authorized to manage customer orders
+* **When** the employee enters a valid customer, inventory item, and order quantity
+* **Then** the system creates the customer order in the database
+* **And** the customer order is assigned a pending status
 
 #### Scenario: Customer order information is invalid
 
-* **Given** <the customer service employee is creating a customer order>
-* **When** <the employee enters an invalid quantity or does not select a customer>
-* **Then** <the system rejects the customer order>
-* **And** <the invalid order is not saved in the database>
+* **Given** the customer service employee is creating a customer order
+* **When** the employee enters an invalid quantity or does not select a customer
+* **Then** the system rejects the customer order
+* **And** the invalid order is not saved in the database
 
-### US-N.2 — Track Customer Orders
+### US-7.2 — Track Customer Orders
 
 #### Scenario: Customer order status is updated
 
-* **Given** <a customer order exists in the database>
-* **When** <the customer service employee updates the order status>
-* **Then** <the system saves the new customer order status>
-* **And** <the current status is displayed when the order is viewed>
+* **Given** a customer order exists in the database
+* **When** the customer service employee updates the order status
+* **Then** the system saves the new customer order status
+* **And** the current status is displayed when the order is viewed
 
 #### Scenario: Cancelled customer order cannot be fulfilled
 
-* **Given** <a customer order has been cancelled>
-* **When** <the warehouse employee attempts to mark the order as fulfilled>
-* **Then** <the system rejects the update>
-* **And** <the inventory quantity is not changed>
+* **Given** a customer order has been cancelled
+* **When** the warehouse employee attempts to mark the order as fulfilled
+* **Then** the system rejects the update
+* **And** the inventory quantity is not changed
 
-### US-N.3 — Fulfill Customer Orders
+### US-7.3 — Fulfill Customer Orders
 
 #### Scenario: Customer order is fulfilled successfully
 
-* **Given** <a customer order has been created and contains valid inventory items>
-* **When** <the warehouse employee marks the customer order as fulfilled>
-* **Then** <the system updates the customer order status to fulfilled>
-* **And** <the ordered quantities are removed from the appropriate inventory items>
+* **Given** a customer order has been created and contains valid inventory items
+* **When** the warehouse employee marks the customer order as fulfilled
+* **Then** the system updates the customer order status to fulfilled
+* **And** the ordered quantities are removed from the appropriate inventory items
 
 #### Scenario: Not enough inventory is available
 
-* **Given** <a customer order requires 10 items and only 5 are available>
-* **When** <the warehouse employee attempts to fulfill the customer order>
-* **Then** <the system rejects the fulfillment>
-* **And** <the inventory quantity remains unchanged>
+* **Given** a customer order requires 10 items and only 5 are available
+* **When** the warehouse employee attempts to fulfill the customer order
+* **Then** the system rejects the fulfillment
+* **And** the inventory quantity remains unchanged

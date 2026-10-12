@@ -1,7 +1,7 @@
 # Feature: <Manage_Customers>
 
-**Feature ID:** 4  
-**Branch pattern:** `feature/5-Manage_Customers`
+**Feature ID:** 6  
+**Branch pattern:** `feature/6-Manage_Customers`
 **Status:** Draft  
 **Created:** 2026-09-27 
 **Input:** Allows authorized users to manage customer information, update customer details, and maintain accurate customer records.
@@ -12,35 +12,35 @@
 
 ## User Stories
 
-### US-N.1: Manage Customers
+### US-6.1: Manage Customers
 
-**As a** <customer service employee>  
-**I want to** <add, update, and remove customer information>  
-**So that** <customer information stays accurate and up to date>
-
-**Priority:** P1  
-**Independent test:** <Create a customer, update the customer's information, and remove the customer while verifying that the database reflects each change.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
-
-### US-N.2: View Customer Information
-
-**As a** <customer service employee>  
-**I want to** <view customer information>  
-**So that** <I can quickly find the information needed to assist customers>
+**As a** customer service employee 
+**I want to** add, update, and remove customer information
+**So that** customer information stays accurate and up to date
 
 **Priority:** P1  
-**Independent test:** <Search for an existing customer and verify that the customer's stored information is displayed correctly.>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
+**Independent test:** Create a customer, update the customer's information, and remove the customer while verifying that the database reflects each change.  
+**Acceptance scenarios:** see ### US-6.1 under Acceptance Criteria.
 
-### US-N.3: Update Customer Information
+### US-6.2: View Customer Information
 
-**As a** <customer service employee>  
-**I want to** <update customer contact information>  
-**So that** <the system contains current customer information>
+**As a** customer service employee
+**I want to** view customer information 
+**So that** I can quickly find the information needed to assist customers
 
 **Priority:** P1  
-**Independent test:** <Update a customer's information and verify that the new information is stored correctly in the database.>  
-**Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
+**Independent test:** Search for an existing customer and verify that the customer's stored information is displayed correctly.  
+**Acceptance scenarios:** see ### US-6.2 under Acceptance Criteria
+
+### US-6.3: Update Customer Information
+
+**As a** customer service employee
+**I want to** update customer contact information 
+**So that** the system contains current customer information
+
+**Priority:** P1  
+**Independent test:** Update a customer's information and verify that the new information is stored correctly in the database.  
+**Acceptance scenarios:** see ### US-6.3 under Acceptance Criteria
 
 ---
 
@@ -125,50 +125,50 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Customers
+### US-6.1 — Manage Customers
 
 #### Scenario: Customer is created successfully
 
-* **Given** <the user is authorized to manage customers>
-* **When** <the user enters valid customer information and creates the customer>
-* **Then** <the system creates the customer record in the database>
-* **And** <the customer's information is saved correctly>
+* **Given** the user is authorized to manage customers
+* **When** the user enters valid customer information and creates the customer
+* **Then** the system creates the customer record in the database
+* **And** the customer's information is saved correctly
 
 #### Scenario: Customer information is invalid
 
-* **Given** <the user is creating a customer>
-* **When** <the user leaves a required customer field blank>
-* **Then** <the system rejects the customer record>
-* **And** <the customer is not saved in the database>
+* **Given** the user is creating a customer
+* **When** the user leaves a required customer field blank
+* **Then** the system rejects the customer record
+* **And** the customer is not saved in the database
 
-### US-N.2 — View Customer Information
+### US-6.2 — View Customer Information
 
 #### Scenario: Customer information is found
 
-* **Given** <a customer exists in the database>
-* **When** <the user searches for the customer using valid information>
-* **Then** <the system displays the matching customer>
-* **And** <the customer's stored information is displayed correctly>
+* **Given** a customer exists in the database
+* **When** the user searches for the customer using valid information
+* **Then** the system displays the matching customer
+* **And** the customer's stored information is displayed correctly
 
 #### Scenario: Customer cannot be found
 
-* **Given** <the customer does not exist in the database>
-* **When** <the user searches for the customer>
-* **Then** <the system indicates that no matching customer was found>
-* **And** <the system does not display incorrect customer information>
+* **Given** the customer does not exist in the database
+* **When** the user searches for the customer
+* **Then** the system indicates that no matching customer was found
+* **And** the system does not display incorrect customer information
 
-### US-N.3 — Update Customer Information
+### US-6.3 — Update Customer Information
 
 #### Scenario: Customer information is updated successfully
 
-* **Given** <a customer already exists>
-* **When** <the user updates valid customer information>
-* **Then** <the system updates the customer record>
-* **And** <the new customer information is saved in the database>
+* **Given** a customer already exists
+* **When** the user updates valid customer information
+* **Then** the system updates the customer record
+* **And** the new customer information is saved in the database
 
 #### Scenario: Customer does not exist
 
-* **Given** <the customer does not exist in the database>
-* **When** <the user attempts to update the customer>
-* **Then** <the system rejects the update>
-* **And** <no customer information is changed>
+* **Given** the customer does not exist in the database
+* **When** the user attempts to update the customer
+* **Then** the system rejects the update
+* **And** no customer information is changed

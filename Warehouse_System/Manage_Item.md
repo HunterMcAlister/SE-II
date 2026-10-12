@@ -1,6 +1,6 @@
 # Feature: <Manage_Item>
 
-**Feature ID:** 1  
+**Feature ID:** 2  
 **Branch pattern:** `feature/2-Manage_Item`
 **Status:** Draft  
 **Created:** 2026-09-27 
@@ -12,35 +12,35 @@
 
 ## User Stories
 
-### US-N.1: Manage Inventory Items
+### US-2.1: Manage Inventory Items
 
-**As a** <warehouse employee>  
-**I want to** <add, update, and remove inventory items>  
-**So that** <inventory information stays accurate and up to date>
-
-**Priority:** P1  
-**Independent test:** <Create an inventory item, update its information, and remove it while verifying that the database reflects each change.>  
-**Acceptance scenarios:** see ### US-N.1 under Acceptance Criteria.
-
-### US-N.2: Log Incoming Items
-
-**As a** <warehouse employee>  
-**I want to** <record incoming inventory items>  
-**So that** <the system accurately tracks items received by the warehouse>
+**As a** warehouse employee  
+**I want to** add, update, and remove inventory items  
+**So that** inventory information stays accurate and up to date
 
 **Priority:** P1  
-**Independent test:** <Record an incoming inventory item and verify that the inventory quantity and log are updated correctly.>  
-**Acceptance scenarios:** see ### US-N.2 under Acceptance Criteria
+**Independent test:** Create an inventory item, update its information, and remove it while verifying that the database reflects each change.  
+**Acceptance scenarios:** see ### US-2.1 under Acceptance Criteria.
 
-### US-N.3: Log Missing/Damaged Items
+### US-2.2: Log Incoming Items
 
-**As a** <warehouse employee>  
-**I want to** <record missing or damaged inventory items>  
-**So that** <inventory quantities remain accurate and missing or damaged items can be tracked>
+**As a** warehouse employee
+**I want to** record incoming inventory items  
+**So that** the system accurately tracks items received by the warehouse
 
 **Priority:** P1  
-**Independent test:** <Record an item as missing or damaged and verify that the inventory quantity and log are updated correctly.>  
-**Acceptance scenarios:** see ### US-N.3 under Acceptance Criteria
+**Independent test:** Record an incoming inventory item and verify that the inventory quantity and log are updated correctly  
+**Acceptance scenarios:** see ### US-2.2 under Acceptance Criteria
+
+### US-2.3: Log Missing/Damaged Items
+
+**As a** warehouse employee  
+**I want to** record missing or damaged inventory items  
+**So that** inventory quantities remain accurate and missing or damaged items can be tracked
+
+**Priority:** P1  
+**Independent test:** Record an item as missing or damaged and verify that the inventory quantity and log are updated correctly.  
+**Acceptance scenarios:** see ### US-2.3 under Acceptance Criteria
 
 ---
 
@@ -145,50 +145,50 @@
 
 ## Acceptance Criteria
 
-### US-N.1 — Manage Inventory
+### US-2.1 — Manage Inventory
 
 #### Scenario: Inventory item is created successfully
 
-* **Given** <the warehouse employee is authorized to manage inventory>
-* **When** <the employee enters valid inventory item information and creates the item>
-* **Then** <the system creates the inventory item in the database>
-* **And** <the item's information is saved correctly>
+* **Given** the warehouse employee is authorized to manage inventory
+* **When** the employee enters valid inventory item information and creates the item
+* **Then** the system creates the inventory item in the database
+* **And** the item's information is saved correctly
 
 #### Scenario: Inventory item is updated successfully
 
-* **Given** <an inventory item already exists>
-* **When** <the warehouse employee changes valid information for the item>
-* **Then** <the system updates the inventory item>
-* **And** <the updated information is saved in the database>
+* **Given** an inventory item already exists
+* **When** the warehouse employee changes valid information for the item
+* **Then** the system updates the inventory item
+* **And** the updated information is saved in the database
 
-### US-N.2 — Logs
+### US-2.2 — Logs
 
 #### Scenario: Incoming inventory is logged successfully
 
-* **Given** <an inventory item exists in the system>
-* **When** <the warehouse employee records a valid incoming quantity>
-* **Then** <the system increases the item's current quantity by the incoming amount>
-* **And** <the system creates an inventory log showing the incoming inventory>
+* **Given** an inventory item exists in the system
+* **When** the warehouse employee records a valid incoming quantity
+* **Then** the system increases the item's current quantity by the incoming amount
+* **And** the system creates an inventory log showing the incoming inventory
 
 #### Scenario: Invalid incoming inventory is entered
 
-* **Given** <an inventory item exists in the system>
-* **When** <the warehouse employee attempts to record a quantity of 0 or less>
-* **Then** <the system rejects the transaction>
-* **And** <the inventory quantity and inventory log remain unchanged>
+* **Given** an inventory item exists in the system
+* **When** the warehouse employee attempts to record a quantity of 0 or less
+* **Then** the system rejects the transaction
+* **And** the inventory quantity and inventory log remain unchanged
 
-### US-N.3 — Logs and Missing/Damaged Items
+### US-2.3 — Logs and Missing/Damaged Items
 
 #### Scenario: Missing or damaged inventory is logged successfully
 
-* **Given** <an inventory item exists and has enough available inventory>
-* **When** <the warehouse employee records a valid quantity as missing or damaged>
-* **Then** <the system decreases the item's current quantity by that amount>
-* **And** <the system creates an inventory log showing the item as missing or damaged>
+* **Given** an inventory item exists and has enough available inventory
+* **When** the warehouse employee records a valid quantity as missing or damaged
+* **Then** the system decreases the item's current quantity by that amount
+* **And** the system creates an inventory log showing the item as missing or damaged
 
 #### Scenario: Missing or damaged quantity is greater than available inventory
 
-* **Given** <an inventory item has a current quantity of 5>
-* **When** <the warehouse employee attempts to record 6 items as missing or damaged>
-* **Then** <the system rejects the transaction>
-* **And** <the inventory quantity remains 5 and no invalid log is created>
+* **Given** an inventory item has a current quantity of 5
+* **When** the warehouse employee attempts to record 6 items as missing or damaged
+* **Then** the system rejects the transaction
+* **And** the inventory quantity remains 5 and no invalid log is created
